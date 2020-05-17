@@ -38,7 +38,7 @@ class modInstallSettings {
                     $server_dsn = "{$this->settings['database_type']}:host={$this->settings['database_server']};charset={$this->settings['database_connection_charset']}";
                     break;
                 case 'sqlite':
-                    $database_name = explode('.',ereg_replace('[^A-Za-z0-9.]', '', $this->settings['dbase']));                    
+                    $database_name = explode('.',preg_replace('[^A-Za-z0-9.]', '', $this->settings['dbase']));
                     $this->settings['dbase'] = $database_name[0];
                     $database_fullpath = MODX_CORE_PATH.'data/'.$this->settings['dbase'].'.db3';
                     $database_dsn = "{$this->settings['database_type']}:{$database_fullpath}";
