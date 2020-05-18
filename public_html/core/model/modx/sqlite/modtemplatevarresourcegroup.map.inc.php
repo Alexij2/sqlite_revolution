@@ -30,7 +30,30 @@ $xpdo_meta_map['modTemplateVarResourceGroup']= array (
       'default' => 0,
     ),
   ),
-  'aggregates' => 
+  'indexes' =>
+  array (
+    'tmplvar_template' =>
+    array (
+      'alias' => 'tmplvar_template',
+      'type' => 'BTREE',
+      'columns' =>
+      array (
+        'tmplvarid' =>
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+        'documentgroup' =>
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+      ),
+    ),
+  ),
+  'aggregates' =>
   array (
     'TemplateVar' => 
     array (

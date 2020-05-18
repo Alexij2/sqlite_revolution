@@ -48,7 +48,7 @@ $xpdo_meta_map['modResource']= array (
     'class_key' => 'modDocument',
     'context_key' => 'web',
     'content_type' => 1,
-    'uri' => '',
+    'uri' => NULL,
     'uri_override' => 0,
     'hide_children_in_tree' => 0,
     'show_in_tree' => 1,
@@ -702,10 +702,46 @@ $xpdo_meta_map['modResource']= array (
         ),
       ),
     ),
+    'cache_refresh_idx' =>
+    array (
+      'alias' => 'cache_refresh_index',
+      'primary' => false,
+      'unique' => false,
+      'type' => 'BTREE',
+      'columns' =>
+      array (
+        'parent' =>
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+        'menuindex' =>
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+        'id' =>
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+      ),
+    ),
   ),
   'composites' => 
   array (
-    'TemplateVarResources' => 
+    'Children' =>
+    array (
+      'class' => 'modResource',
+      'local' => 'id',
+      'foreign' => 'parent',
+      'cardinality' => 'many',
+      'owner' => 'local',
+    ),
+    'TemplateVarResources' =>
     array (
       'class' => 'modTemplateVarResource',
       'local' => 'id',

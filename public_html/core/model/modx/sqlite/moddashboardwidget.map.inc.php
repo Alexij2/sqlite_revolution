@@ -10,7 +10,7 @@ $xpdo_meta_map['modDashboardWidget']= array (
   'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
-    'name' => NULL,
+    'name' => '',
     'description' => NULL,
     'type' => NULL,
     'content' => NULL,
@@ -26,6 +26,7 @@ $xpdo_meta_map['modDashboardWidget']= array (
       'precision' => '255',
       'phptype' => 'string',
       'null' => false,
+      'default' => '',
       'index' => 'index',
     ),
     'description' => 
