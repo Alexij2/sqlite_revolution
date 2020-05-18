@@ -113,6 +113,22 @@ $xpdo_meta_map['modSnippet']= array (
         ),
       ),
     ),
+    'static' =>
+    array (
+      'alias' => 'static',
+      'primary' => false,
+      'unique' => false,
+      'type' => 'BTREE',
+      'columns' =>
+      array (
+        'static' =>
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+      ),
+    ),
   ),
   'composites' => 
   array (
@@ -141,7 +157,7 @@ $xpdo_meta_map['modSnippet']= array (
         'invalid' => 
         array (
           'type' => 'preg_match',
-          'rule' => '/^(?!\\s)[a-zA-Z0-9\\x2d-\\x2f\\x7f-\\xff_-\\s]+(?!\\s)$/',
+          'rule' => '/^(?!\\s)[a-zA-Z0-9\\x2d-\\x2f\\x7f-\\xff-_\\s]+(?!\\s)$/',
           'message' => 'snippet_err_invalid_name',
         ),
       ),

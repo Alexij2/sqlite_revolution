@@ -1,0 +1,2 @@
+- очистка сессий вызвала ошибку - flush_sessions_err
+- manager для списка таблиц написать: manager/assets/modext/widgets/system/sqlite

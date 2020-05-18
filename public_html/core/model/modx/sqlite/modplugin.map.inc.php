@@ -124,6 +124,22 @@ $xpdo_meta_map['modPlugin']= array (
         ),
       ),
     ),
+    'static' =>
+    array (
+      'alias' => 'static',
+      'primary' => false,
+      'unique' => false,
+      'type' => 'BTREE',
+      'columns' =>
+      array (
+        'static' =>
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+      ),
+    ),
   ),
   'composites' => 
   array (
