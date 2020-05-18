@@ -221,6 +221,14 @@ $xpdo_meta_map['modUser']= array (
       'cardinality' => 'many',
       'owner' => 'local',
     ),
+    'ActiveUsers' =>
+    array (
+      'class' => 'modActiveUser',
+      'local' => 'id',
+      'foreign' => 'internalKey',
+      'cardinality' => 'many',
+      'owner' => 'local',
+    ),
   ),
   'aggregates' => 
   array (

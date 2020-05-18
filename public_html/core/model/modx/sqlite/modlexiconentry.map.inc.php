@@ -74,6 +74,8 @@ $xpdo_meta_map['modLexiconEntry']= array (
       'dbtype' => 'datetime',
       'phptype' => 'timestamp',
       'null' => true,
+      'default' => NULL,
+      'attributes' => 'ON UPDATE CURRENT_TIMESTAMP',
     ),
   ),
   'indexes' => 

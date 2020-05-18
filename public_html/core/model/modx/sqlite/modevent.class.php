@@ -12,16 +12,17 @@ class modEvent_sqlite extends modEvent {
     public static function listEvents(xPDO &$xpdo, $plugin, array $criteria = array(), array $sort = array('id' => 'ASC'), $limit = 0, $offset = 0) {
         $c = $xpdo->newQuery('modEvent');
         $count = $xpdo->getCount('modEvent',$c);
+        $c->select($xpdo->getSelectColumns('modEvent','modEvent'));
+        $c->select(array(
+            'IFNULL(modPluginEvent.pluginid,0) AS enabled',
+            'modPluginEvent.priority AS priority',
+            'modPluginEvent.propertyset AS propertyset',
+        ));
+
         $c->leftJoin('modPluginEvent','modPluginEvent','
             modPluginEvent.event = modEvent.name
             AND modPluginEvent.pluginid = '.$plugin.'
         ');
-        $c->select(array(
-            'modEvent.*',
-            'CASE WHEN modPluginEvent.pluginid IS NULL THEN 0 ELSE 1 END AS enabled',
-            'modPluginEvent.priority AS priority',
-            'modPluginEvent.propertyset AS propertyset',
-        ));
         $c->where($criteria);
         foreach($sort as $field=> $dir) {
             $c->sortby($xpdo->getSelectColumns('modEvent','modEvent','',array($field)),$dir);

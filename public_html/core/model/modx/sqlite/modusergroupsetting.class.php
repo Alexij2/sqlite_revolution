@@ -16,8 +16,8 @@ class modUserGroupSetting_sqlite extends modUserGroupSetting {
                 'Entry.value AS name_trans',
                 'Description.value AS description_trans',
             ));
-        $c->leftJoin('modLexiconEntry','Entry',"CONCAT('setting_',modUserGroupSetting.`key`) = Entry.name");
-        $c->leftJoin('modLexiconEntry','Description',"CONCAT('setting_',modUserGroupSetting.`key`,'_desc') = Description.name");
+        $c->leftJoin('modLexiconEntry','Entry',"'setting_' + modUserGroupSetting.[key] = Entry.name");
+        $c->leftJoin('modLexiconEntry','Description',"'setting_' + modUserGroupSetting.[key] + '_desc' = Description.name");
         $c->where($criteria);
         $count = $xpdo->getCount('modUserGroupSetting',$c);
         $c->sortby($xpdo->getSelectColumns('modUserGroupSetting','modUserGroupSetting','',array('area')),'ASC');
