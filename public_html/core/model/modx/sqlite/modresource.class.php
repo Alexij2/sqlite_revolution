@@ -18,7 +18,7 @@ class modResource_sqlite extends modResource {
         ));
         $result['total'] = $resource->xpdo->getCount('modResourceGroup',$c);
         $c->select($resource->xpdo->getSelectColumns('modResourceGroup', 'modResourceGroup'));
-        $c->select(array("ISNULL(ResourceGroupResource.document,0) AS access"));
+        $c->select(array("IFNULL(ResourceGroupResource.document,0) AS access"));
         foreach ($sort as $sortKey => $sortDir) {
             $c->sortby($resource->xpdo->escape('modResourceGroup') . '.' . $resource->xpdo->escape($sortKey), $sortDir);
         }
@@ -31,6 +31,7 @@ class modResource_sqlite extends modResource {
         $c = $resource->xpdo->newQuery('modTemplateVar');
         $c->query['distinct'] = 'DISTINCT';
         $c->select($resource->xpdo->getSelectColumns('modTemplateVar', 'modTemplateVar'));
+        $c->select($resource->xpdo->getSelectColumns('modTemplateVarTemplate', 'tvtpl', '', array('rank')));
         if ($resource->isNew()) {
             $c->select(array(
                 "modTemplateVar.default_text AS value",
@@ -38,11 +39,10 @@ class modResource_sqlite extends modResource {
             ));
         } else {
             $c->select(array(
-                "ISNULL(tvc.value,modTemplateVar.default_text) AS value",
+                "IFNULL(tvc.value,modTemplateVar.default_text) AS value",
                 "{$resource->get('id')} AS resourceId"
             ));
         }
-        $c->select($resource->xpdo->getSelectColumns('modTemplateVarTemplate', 'tvtpl', '', array('rank')));
         $c->innerJoin('modTemplateVarTemplate','tvtpl',array(
             'tvtpl.tmplvarid = modTemplateVar.id',
             'tvtpl.templateid' => $resource->get('template'),
@@ -54,7 +54,6 @@ class modResource_sqlite extends modResource {
             ));
         }
         $c->sortby('tvtpl.rank,modTemplateVar.rank');
-
         return $resource->xpdo->getCollection('modTemplateVar', $c);
     }
 }

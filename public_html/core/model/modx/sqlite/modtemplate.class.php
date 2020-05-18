@@ -22,7 +22,7 @@ class modTemplate_sqlite extends modTemplate {
         if (!empty($conditions)) { $c->where($conditions); }
         $c->select(array(
             "CASE modTemplateVarTemplate.tmplvarid WHEN NULL THEN 0 ELSE 1 END AS access",
-            "ISNULL(modTemplateVarTemplate.rank, '-') AS tv_rank",
+            "IFNULL(modTemplateVarTemplate.rank, '-') AS tv_rank",
             'category_name' => 'Category.category',
         ));
         foreach ($sort as $sortKey => $sortDir) {
