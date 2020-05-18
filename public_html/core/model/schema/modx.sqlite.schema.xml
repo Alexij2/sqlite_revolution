@@ -658,8 +658,8 @@
         <field key="topic" dbtype="varchar" precision="255" phptype="string" null="false" default="default" index="index" />
         <field key="namespace" dbtype="varchar" precision="40" phptype="string" null="false" default="core" index="index" />
         <field key="language" dbtype="varchar" precision="20" phptype="string" null="false" default="en" index="index" />
-        <field key="createdon" dbtype="datetime" phptype="datetime" />
-        <field key="editedon" dbtype="timestamp" phptype="timestamp" null="false" attributes="ON UPDATE CURRENT_TIMESTAMP" />
+        <field key="createdon" dbtype="text" phptype="datetime" />
+        <field key="editedon" dbtype="text" phptype="timestamp" null="false" />
         
         <index alias="name" name="name" primary="false" unique="false" type="BTREE">
             <column key="name" length="" collation="A" null="false" />
@@ -727,7 +727,7 @@
         Development namespacing object by which MODX extension development is done. Provides a centralized path location
         and grouping name for organizing development silos within MODX.
     -->
-    <object class="modNamespace" table="namespaces" extends="xPDOObject">
+    <object class="modNamespace" table="namespaces" extends="modAccessibleObject">
         <!-- A lowercase namespace name that this Namespace will be referred as -->
         <field key="name" dbtype="varchar" precision="40" phptype="string" null="false" default="" index="pk" />
         <!-- The core path of the Namespace, where the PHP files will reside -->
@@ -769,9 +769,9 @@
         <!-- The name to give the service on the modX object when instantiating. Only valid if service_class is not empty. -->
         <field key="service_name" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
         <!-- When this extension package was made -->
-		<field key="created_at" dbtype="datetime" phptype="datetime" null="true" />
+		<field key="created_at" dbtype="text" phptype="datetime" null="true" />
 		<!-- The last time this extension package was updated -->
-		<field key="updated_at" dbtype="datetime" phptype="datetime" null="true" />
+		<field key="updated_at" dbtype="text" phptype="datetime" null="true" />
 
         <index alias="namespace" name="namespace" primary="false" unique="false" type="BTREE">
             <column key="namespace" length="" collation="A" null="false" />
@@ -1082,7 +1082,7 @@
         <field key="xtype" dbtype="varchar" precision="75" phptype="string" null="false" default="textfield" />
         <field key="namespace" dbtype="varchar" precision="40" phptype="string" null="false" default="core" />
         <field key="area" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
-        <field key="editedon" dbtype="text" phptype="timestamp" null="true" attributes="CURRENT_TIMESTAMP" />
+        <field key="editedon" dbtype="text" phptype="timestamp" />
         
         <index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE">
             <column key="key" length="" collation="A" null="false" />

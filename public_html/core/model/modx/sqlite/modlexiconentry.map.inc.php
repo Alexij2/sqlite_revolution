@@ -66,16 +66,14 @@ $xpdo_meta_map['modLexiconEntry']= array (
     ),
     'createdon' => 
     array (
-      'dbtype' => 'datetime',
+      'dbtype' => 'text',
       'phptype' => 'datetime',
     ),
     'editedon' => 
     array (
-      'dbtype' => 'datetime',
+      'dbtype' => 'text',
       'phptype' => 'timestamp',
-      'null' => true,
-      'default' => NULL,
-      'attributes' => 'ON UPDATE CURRENT_TIMESTAMP',
+      'default' => '',
     ),
   ),
   'indexes' => 

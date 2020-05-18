@@ -64,7 +64,7 @@ $xpdo_meta_map['modSystemSetting']= array (
     array (
       'dbtype' => 'text',
       'phptype' => 'timestamp',
-      'null' => true,
+        'default' => '',
     ),
   ),
   'indexes' => 

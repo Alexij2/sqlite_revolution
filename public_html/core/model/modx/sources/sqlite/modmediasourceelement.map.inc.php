@@ -11,21 +11,13 @@ $xpdo_meta_map['modMediaSourceElement']= array (
   'fields' => 
   array (
     'source' => 0,
-    'object' => 0,
     'object_class' => 'modTemplateVar',
+    'object' => 0,
     'context_key' => 'web',
   ),
   'fieldMeta' => 
   array (
     'source' => 
-    array (
-      'dbtype' => 'integer',
-      'phptype' => 'integer',
-      'null' => false,
-      'default' => 0,
-      'index' => 'pk',
-    ),
-    'object' => 
     array (
       'dbtype' => 'integer',
       'phptype' => 'integer',
@@ -42,6 +34,14 @@ $xpdo_meta_map['modMediaSourceElement']= array (
       'default' => 'modTemplateVar',
       'index' => 'pk',
     ),
+    'object' =>
+      array (
+          'dbtype' => 'integer',
+          'phptype' => 'integer',
+          'null' => false,
+          'default' => 0,
+          'index' => 'pk',
+      ),
     'context_key' => 
     array (
       'dbtype' => 'nvarchar',
