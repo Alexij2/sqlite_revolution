@@ -62,7 +62,7 @@ $xpdo_meta_map['modSystemSetting']= array (
     ),
     'editedon' => 
     array (
-      'dbtype' => 'datetime',
+      'dbtype' => 'text',
       'phptype' => 'timestamp',
       'null' => true,
     ),
