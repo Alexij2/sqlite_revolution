@@ -16,8 +16,8 @@ class modUserSetting_sqlite extends modUserSetting {
             'Entry.value AS name_trans',
             'Description.value AS description_trans',
         ));
-        $c->leftJoin('modLexiconEntry','Entry',"'setting_' + modUserSetting.[key] = Entry.name");
-        $c->leftJoin('modLexiconEntry','Description',"'setting_' + modUserSetting.[key] + '_desc' = Description.name");
+        $c->leftJoin('modLexiconEntry','Entry',"'setting_' + modUserSetting.{$xpdo->escape('key')} = Entry.name");
+        $c->leftJoin('modLexiconEntry','Description',"'setting_' + modUserSetting.{$xpdo->escape('key')} + '_desc' = Description.name");
         $c->where($criteria);
         $count = $xpdo->getCount('modUserSetting',$c);
         $c->sortby($xpdo->getSelectColumns('modUserSetting','modUserSetting','',array('area')),'ASC');
@@ -27,6 +27,7 @@ class modUserSetting_sqlite extends modUserSetting {
         if ((int) $limit > 0) {
             $c->limit((int) $limit, (int) $offset);
         }
+        $c->prepare();
         return array(
             'count'=> $count,
             'collection'=> $xpdo->getCollection('modUserSetting',$c)

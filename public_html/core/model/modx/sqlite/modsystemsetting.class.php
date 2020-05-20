@@ -31,6 +31,7 @@ class modSystemSetting_sqlite extends modSystemSetting {
         if ((int) $limit > 0) {
             $c->limit((int) $limit, (int) $offset);
         }
+        $c->prepare();
         return array(
             'count'=> $count,
             'collection'=> $xpdo->getCollection('modSystemSetting',$c)
