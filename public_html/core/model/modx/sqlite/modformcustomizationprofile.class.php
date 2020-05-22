@@ -3,20 +3,25 @@
  * @package modx
  * @subpackage sqlite
  */
-require_once (dirname(dirname(__FILE__)) . '/modformcustomizationprofile.class.php');
+require_once (dirname(__DIR__) . '/modformcustomizationprofile.class.php');
 /**
  * @package modx
  * @subpackage sqlite
  */
 class modFormCustomizationProfile_sqlite extends modFormCustomizationProfile {
     public static function listProfiles(xPDO &$xpdo, array $criteria = array(), array $sort = array('id' => 'ASC'), $limit = 0, $offset = 0) {
-        $objCollection= array ();
-
         /* query for profiles */
         $c = $xpdo->newQuery('modFormCustomizationProfile');
         $c->select(array(
-            $xpdo->getSelectColumns('modFormCustomizationProfile','modFormCustomizationProfile'),
+            'modFormCustomizationProfile.*',
         ));
+        $c->select('
+            (SELECT GROUP_CONCAT(UserGroup.name) FROM '.$xpdo->getTableName('modUserGroup').' AS UserGroup
+                INNER JOIN '.$xpdo->getTableName('modFormCustomizationProfileUserGroup').' AS fcpug
+                ON fcpug.usergroup = UserGroup.id
+             WHERE fcpug.profile = modFormCustomizationProfile.id
+            ) AS usergroups
+        ');
         $c->where($criteria,null,2);// also log issue in remine to look at this usage of where()
         $count = $xpdo->getCount('modFormCustomizationProfile',$c);
 
@@ -26,33 +31,9 @@ class modFormCustomizationProfile_sqlite extends modFormCustomizationProfile {
         if ((int) $limit > 0) {
             $c->limit((int) $limit, (int) $offset);
         }
-
-        $rows= xPDOObject :: _loadRows($xpdo, 'modFormCustomizationProfile', $c);
-        $rowsArray = $rows->fetchAll(PDO::FETCH_ASSOC);
-        $rows->closeCursor();
-        foreach($rowsArray as $row) {
-            $objCollection[] = $xpdo->call('modFormCustomizationProfile', '_loadInstance', array(&$xpdo, 'modFormCustomizationProfile', $c, $row));
-        }
-        unset($row, $rowsArray);
         return array(
             'count'=> $count,
-            'collection'=> $objCollection
+            'collection'=> $xpdo->getCollection('modFormCustomizationProfile',$c)
         );
     }
-
-    public static function _loadInstance(& $xpdo, $className, $criteria, $row) {
-        $sql = "SELECT gr.[name]
-             FROM {$xpdo->config['table_prefix']}membergroup_names AS gr,
-              {$xpdo->config['table_prefix']}fc_profiles_usergroups AS pu,
-              {$xpdo->config['table_prefix']}fc_profiles AS pr
-             WHERE gr.id = pu.usergroup
-               AND pu.profile = pr.id
-               AND pr.id = {$row['id']}
-               ORDER BY gr.name";
-        $groupNamesStatement = $xpdo->query($sql);
-        $groupNamesArray = $groupNamesStatement->fetchAll(PDO::FETCH_COLUMN, 0);
-        $row['usergroups'] = implode(', ', $groupNamesArray);
-        return parent :: _loadInstance($xpdo, $className, $criteria, $row);
-    }
 }
-?>

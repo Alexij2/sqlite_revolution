@@ -31,6 +31,7 @@ class modContextSetting_sqlite extends modContextSetting {
         if ((int) $limit > 0) {
             $c->limit((int) $limit, (int) $offset);
         }
+        //$c->prepare();
         return array(
             'count'=> $count,
             'collection'=> $xpdo->getCollection('modContextSetting',$c)

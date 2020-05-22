@@ -30,7 +30,7 @@ class modEvent_sqlite extends modEvent {
         if ((int) $limit > 0) {
             $c->limit((int) $limit, (int) $offset);
         }
-        $c->prepare();
+        //$c->prepare();
         return array(
             'count'=> $count,
             'collection'=> $xpdo->getCollection('modEvent',$c)
