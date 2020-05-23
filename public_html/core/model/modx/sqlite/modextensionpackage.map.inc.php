@@ -73,13 +73,13 @@ $xpdo_meta_map['modExtensionPackage']= array (
     ),
     'created_at' =>
     array (
-      'dbtype' => 'text',
+      'dbtype' => 'datetime',
       'phptype' => 'datetime',
       'null' => true,
     ),
     'updated_at' =>
     array (
-      'dbtype' => 'text',
+      'dbtype' => 'datetime',
       'phptype' => 'datetime',
       'null' => true,
     ),

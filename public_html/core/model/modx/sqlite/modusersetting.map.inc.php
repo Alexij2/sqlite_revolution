@@ -69,9 +69,9 @@ $xpdo_meta_map['modUserSetting']= array (
     ),
     'editedon' => 
     array (
-      'dbtype' => 'datetime',
+      'dbtype' => 'bigint',
       'phptype' => 'timestamp',
-      'null' => true,
+      'null' => false,
     ),
   ),
   'indexes' => 

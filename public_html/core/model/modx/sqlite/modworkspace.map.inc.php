@@ -38,7 +38,7 @@ $xpdo_meta_map['modWorkspace']= array (
     ),
     'created' => 
     array (
-      'dbtype' => 'datetime',
+      'dbtype' => 'bigint',
       'phptype' => 'timestamp',
       'null' => false,
     ),

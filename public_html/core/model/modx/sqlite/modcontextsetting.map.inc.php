@@ -68,9 +68,10 @@ $xpdo_meta_map['modContextSetting']= array (
     ),
     'editedon' => 
     array (
-      'dbtype' => 'datetime',
-      'phptype' => 'timestamp',
-      'null' => true,
+        'dbtype' => 'bigint',
+        'phptype' => 'timestamp',
+        'null' => false,
+        'default' => 0,
     ),
   ),
   'indexes' => 

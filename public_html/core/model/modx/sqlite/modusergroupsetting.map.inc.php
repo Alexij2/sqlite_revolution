@@ -70,9 +70,9 @@ $xpdo_meta_map['modUserGroupSetting']= array (
     ),
     'editedon' => 
     array (
-      'dbtype' => 'datetime',
-      'phptype' => 'timestamp',
-      'null' => true,
+        'dbtype' => 'bigint',
+        'phptype' => 'timestamp',
+        'null' => false,
     ),
   ),
   'indexes' => 
