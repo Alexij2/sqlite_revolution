@@ -1,5 +1,5 @@
 # Fork for testing MODX Revolution 2.7.3 whith SqLite3
-(Форк для тестировани и использования MODX Revolution 2.7.3 в работе с файловой базой данных SqLite3. По-русски ниже.)**
+## (По-русски ниже.)
 
 The basis for creating and upgrading the ability to work with sqlite was the RTOSkit user repository.
 He created a fork and the ability to work with sqlite MODX Revo 2.2.5. https://github.com/RTOSkit/revolution. Thanks to him for that. It is a pity that he has not come to the GitHub for a long time.
@@ -37,6 +37,8 @@ Requests pool in the original MODX repo, so far I think is unnecessary, because 
 Good luck!
 
 #RUSSIAN
+
+#Форк для тестировани и использования MODX Revolution 2.7.3 в работе с файловой базой данных SqLite3.
 
 Основой для создания и модернизации возможности работы с sqlite выступил репозиторий пользователя RTOSkit.
 Он создал форк и возможность работы с sqlite MODX Revo 2.2.5. https://github.com/RTOSkit/revolution. Спасибо ему за это. Жаль что уже он давно не заходит на ГитХаб.
