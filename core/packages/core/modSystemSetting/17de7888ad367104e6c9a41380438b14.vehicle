@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '6a77b1fff56d9211ed714db6fbb80d37',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '17de7888ad367104e6c9a41380438b14',
+  'native_key' => 'principal_targets',
+  'object' => '{"key":"principal_targets","value":"modAccessContext,modAccessResourceGroup,modAccessCategory,sources.modAccessMediaSource,modAccessNamespace","xtype":"textfield","namespace":"core","area":"authentication","editedon":null}',
+);

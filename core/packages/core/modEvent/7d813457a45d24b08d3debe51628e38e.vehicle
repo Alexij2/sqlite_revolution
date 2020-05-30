@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '844f67dd926ecd64ba308f51346da3e3',
+  'package' => 'modx',
+  'class' => 'modEvent',
+  'signature' => '7d813457a45d24b08d3debe51628e38e',
+  'native_key' => 'OnBeforeSnipFormSave',
+  'object' => '{"name":"OnBeforeSnipFormSave","service":1,"groupname":"Snippets"}',
+);
