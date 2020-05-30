@@ -22,6 +22,7 @@ class modContextSetting_sqlite extends modContextSetting {
         $c->leftJoin('modLexiconEntry','Entry',"'setting_' + modContextSetting.{$xpdo->escape('key')} = Entry.name");
         $c->leftJoin('modLexiconEntry','Description',"'setting_' + modContextSetting.{$xpdo->escape('key')} + '_desc' = Description.name");
         $c->where($criteria);
+        $c->groupby('modContextSetting.' . $xpdo->escape('context_key') . ', modContextSetting.' . $xpdo->escape('key')); // лечение ALEX
 
         $count = $xpdo->getCount('modContextSetting',$c);
         $c->sortby($xpdo->getSelectColumns('modContextSetting','modContextSetting','',array('area')),'ASC');

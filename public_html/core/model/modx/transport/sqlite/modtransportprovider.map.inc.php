@@ -69,12 +69,14 @@ $xpdo_meta_map['modTransportProvider']= array (
     ),
     'updated' => 
     array (
-      'dbtype' => 'text',
+      'dbtype' => 'bigint',
       'phptype' => 'timestamp',
+        'null' => false,
+        'default' => 0,
     ),
     'active' =>
     array (
-      'dbtype' => 'tinyint',
+      'dbtype' => 'bit',
       'precision' => '1',
       'phptype' => 'boolean',
       'null' => false,
@@ -83,7 +85,7 @@ $xpdo_meta_map['modTransportProvider']= array (
     ),
     'priority' =>
     array (
-      'dbtype' => 'tinyint',
+      'dbtype' => 'integer',
       'precision' => '4',
       'phptype' => 'integer',
       'null' => false,
@@ -92,7 +94,7 @@ $xpdo_meta_map['modTransportProvider']= array (
     ),
     'properties' =>
     array (
-      'dbtype' => 'mediumtext',
+      'dbtype' => 'nvarchar',
       'phptype' => 'json',
       'null' => false,
       'default' => '',

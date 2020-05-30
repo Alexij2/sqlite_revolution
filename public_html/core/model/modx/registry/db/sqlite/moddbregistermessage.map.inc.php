@@ -16,7 +16,7 @@ $xpdo_meta_map['modDbRegisterMessage']= array (
     'valid' => NULL,
     'accessed' => NULL,
     'accesses' => 0,
-    'expires' => '0',
+    'expires' => 0,
     'payload' => NULL,
     'kill' => 0,
   ),
@@ -27,7 +27,6 @@ $xpdo_meta_map['modDbRegisterMessage']= array (
       'dbtype' => 'integer',
       'phptype' => 'integer',
       'null' => false,
-      'index' => 'pk',
     ),
     'id' => 
     array (
@@ -53,9 +52,11 @@ $xpdo_meta_map['modDbRegisterMessage']= array (
     ),
     'accessed' => 
     array (
-      'dbtype' => 'datetime',
+      'dbtype' => 'bigint',
       'phptype' => 'timestamp',
       'index' => 'index',
+        //'null' => false,
+        //'default' => 0,
     ),
     'accesses' => 
     array (
@@ -70,7 +71,7 @@ $xpdo_meta_map['modDbRegisterMessage']= array (
       'dbtype' => 'integer',
       'phptype' => 'integer',
       'null' => false,
-      'default' => '0',
+      'default' => 0,
       'index' => 'index',
     ),
     'payload' => 
@@ -98,13 +99,7 @@ $xpdo_meta_map['modDbRegisterMessage']= array (
       'type' => 'BTREE',
       'columns' => 
       array (
-        'topic' => 
-        array (
-          'length' => '',
-          'collation' => 'A',
-          'null' => false,
-        ),
-        'id' => 
+        'id' =>
         array (
           'length' => '',
           'collation' => 'A',

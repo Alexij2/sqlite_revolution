@@ -47,7 +47,7 @@ $xpdo_meta_map['modTransportPackage']= array (
     ),
     'updated' => 
     array (
-      'dbtype' => 'datetime',
+      'dbtype' => 'bigint',
       'phptype' => 'timestamp',
     ),
     'installed' => 
@@ -57,7 +57,7 @@ $xpdo_meta_map['modTransportPackage']= array (
     ),
     'state' => 
     array (
-      'dbtype' => 'tinyint',
+      'dbtype' => 'bit',
       'precision' => '1',
       'phptype' => 'integer',
       'null' => false,
@@ -121,7 +121,7 @@ $xpdo_meta_map['modTransportPackage']= array (
     ),
     'version_major' => 
     array (
-      'dbtype' => 'tinyint',
+      'dbtype' => 'integer',
       'phptype' => 'integer',
       'null' => false,
       'default' => 0,
@@ -129,7 +129,7 @@ $xpdo_meta_map['modTransportPackage']= array (
     ),
     'version_minor' => 
     array (
-      'dbtype' => 'tinyint',
+      'dbtype' => 'integer',
       'phptype' => 'integer',
       'null' => false,
       'default' => 0,
@@ -137,7 +137,7 @@ $xpdo_meta_map['modTransportPackage']= array (
     ),
     'version_patch' => 
     array (
-      'dbtype' => 'tinyint',
+      'dbtype' => 'integer',
       'phptype' => 'integer',
       'null' => false,
       'default' => 0,
@@ -154,7 +154,7 @@ $xpdo_meta_map['modTransportPackage']= array (
     ),
     'release_index' => 
     array (
-      'dbtype' => 'tinyint',
+      'dbtype' => 'integer',
       'phptype' => 'integer',
       'null' => false,
       'default' => 0,

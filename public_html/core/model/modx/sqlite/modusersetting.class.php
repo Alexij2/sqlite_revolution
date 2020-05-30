@@ -19,6 +19,7 @@ class modUserSetting_sqlite extends modUserSetting {
         $c->leftJoin('modLexiconEntry','Entry',"'setting_' + modUserSetting.{$xpdo->escape('key')} = Entry.name");
         $c->leftJoin('modLexiconEntry','Description',"'setting_' + modUserSetting.{$xpdo->escape('key')} + '_desc' = Description.name");
         $c->where($criteria);
+        $c->groupby('modUserSetting.' . $xpdo->escape('user') . ', modUserSetting.' . $xpdo->escape('key')); // лечение ALEX
         $count = $xpdo->getCount('modUserSetting',$c);
         $c->sortby($xpdo->getSelectColumns('modUserSetting','modUserSetting','',array('area')),'ASC');
         foreach($sort as $field=> $dir) {
