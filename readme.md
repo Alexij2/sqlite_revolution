@@ -36,9 +36,8 @@ I hope that someone will come in handy a similar version of MODX without mysql. 
 Requests pool in the original MODX repo, so far I think is unnecessary, because there are still errors and there is no good testing and a 100% guarantee that everything will be fine.
 Good luck!
 
-=================
-==-- RUSSIAN --==
-=================
+===-- RUSSIAN --===
+=
 
 Основой для создания и модернизации возможности работы с sqlite выступил репозиторий пользователя RTOSkit.
 Он создал форк и возможность работы с sqlite MODX Revo 2.2.5. https://github.com/RTOSkit/revolution. Спасибо ему за это. Жаль что уже он давно не заходит на ГитХаб.
