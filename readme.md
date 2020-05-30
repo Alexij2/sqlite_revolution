@@ -10,7 +10,7 @@ He created a fork and the ability to work with sqlite MODX Revo 2.2.5. https://g
 - The load. For small projects such as: Landings, business cards. Because the database is 1 file. Therefore, if 10 users log in at the same time, and the server response is 0.3 seconds, then the 10th user will most likely wait 0.3 * 10 = 3 seconds. I think everything is clear here.
 - the database file will be located in the core / data / folder and be closed from unexpected guests through htpasswd. Or move this file outside of www. the path to the file is written in the core / config config.
 
-** Testing and familiarization: **
+**Testing and familiarization:**
 1. Simply clone or save as a ZIP;
 2. Transfer the archive to your server and unzip it.
 3. The public_html folder can be deleted, here are the files for working with sqlite3. If you want to help, it will be more convenient to have these files 100% and send PR here.
@@ -22,16 +22,16 @@ He created a fork and the ability to work with sqlite MODX Revo 2.2.5. https://g
 5. Log in to the admin panel if there are no errors.
 6. READY. You can test, try.
 
-** Packages. **
+**Packages:**
 For packages that use the database, you need to create models for xpdo so that the add-on is installed correctly, otherwise you will get a bunch of errors about not being able to find database models for your Package and as a result, the system will not be able to create tables.
 Examples of models are the sources that lie in the public_html folder. rely on mysql when creating, there they are almost 1 in 1.
 Turn on the server and mods logs at the level you need.
 
-** Request pool: **
-** If you suddenly make a pool of requests, then do them AND in the public_html folder as well.
-Because in this way it will be easier to see the difference and more accurately bargain. **
+**Request pool:**
+**If you suddenly make a pool of requests, then do them AND in the public_html folder as well.
+Because in this way it will be easier to see the difference and more accurately bargain.**
 
-** Conclusion **
+**Conclusion**
 I hope that someone will come in handy a similar version of MODX without mysql. Already more robust and working.
 Requests pool in the original MODX repo, so far I think is unnecessary, because there are still errors and there is no good testing and a 100% guarantee that everything will be fine.
 Good luck!
