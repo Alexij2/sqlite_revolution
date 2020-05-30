@@ -18,10 +18,10 @@ He created a fork and the ability to work with sqlite MODX Revo 2.2.5. https://g
 2. Transfer the archive to your server and unzip it.
 3. The public_html folder can be deleted, here are the files for working with sqlite3. If you want to help, it will be more convenient to have these files 100% and send PR here.
 4. Install as usual - / setup.
-4.1. When setting up the database, select - sqlite.
-4.2. Do not enter anything into the connections - click to check the connection.
-4.3. test the connection in the database.
-4.4. If everything is successful, enter the data for the admin as usual and set it to the end.
+- 4.1. When setting up the database, select - sqlite.
+- 4.2. Do not enter anything into the connections - click to check the connection.
+- 4.3. test the connection in the database.
+- 4.4. If everything is successful, enter the data for the admin as usual and set it to the end.
 5. Log in to the admin panel if there are no errors.
 6. READY. You can test, try.
 
@@ -60,10 +60,10 @@ telegram: smialeig
 2. Архив перенесите к себе на сервер и распакуйте.
 3. папку public_html можно удалить, тут файлы для работы с sqlite3. Если вы захотите помочь - удобнее будет 100% иметь эти файлы и сюда слать PR.
 4. Устанавливайте как обычно - /setup.
-4.1. При настройке БД выберите - sqlite.
-4.2. В подключения ничего не вводите - жмите проверить подключение.
-4.3. протестируйте соединение в БД.
-4.4. Если все успешно - введите данные для адмики как обычно и установите до конца.
+- 4.1. При настройке БД выберите - sqlite.
+- 4.2. В подключения ничего не вводите - жмите проверить подключение.
+- 4.3. протестируйте соединение в БД.
+- 4.4. Если все успешно - введите данные для адмики как обычно и установите до конца.
 5. Войдите в админку если ошибок нет.
 6. ГОТОВО. можно тестить, пробовать.
 
