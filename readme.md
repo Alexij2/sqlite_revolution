@@ -4,6 +4,9 @@
 The basis for creating and upgrading the ability to work with sqlite was the RTOSkit user repository.
 He created a fork and the ability to work with sqlite MODX Revo 2.2.5. https://github.com/RTOSkit/revolution. Thanks to him for that. It is a pity that he has not come to the GitHub for a long time.
 
+## What did I:
+- As a result of a couple of weeks of my crazy enthusiasm, omitting details, everything worked already on version 2.6.5, except for the correct installation of packages, which I temporarily fixed in system.
+
 ## Technical data:
 - support for php 5.6+ with php sqlite3 extension. can be found through phpinfo.
 - MODX Revo 2.6.5+
@@ -27,19 +30,24 @@ For packages that use the database, you need to create models for xpdo so that t
 Examples of models are the sources that lie in the public_html folder. rely on mysql when creating, there they are almost 1 in 1.
 Turn on the server and mods logs at the level you need.
 
-## Request pool:
-If you suddenly make a pool of requests, then do them AND in the public_html folder as well.
+## Pull Request:
+If you suddenly make a pull requests, then do them **AND in the public_html folder as well**.
 Because in this way it will be easier to see the difference and more accurately bargain.
 
 ## Conclusion
 I hope that someone will come in handy a similar version of MODX without mysql. Already more robust and working.
 Requests pool in the original MODX repo, so far I think is unnecessary, because there are still errors and there is no good testing and a 100% guarantee that everything will be fine.
+
 Good luck!
+telegram: smialeig
 
 # Форк для тестировани и использования MODX Revolution 2.7.3 в работе с файловой базой данных SqLite3.
 
 Основой для создания и модернизации возможности работы с sqlite выступил репозиторий пользователя RTOSkit.
 Он создал форк и возможность работы с sqlite MODX Revo 2.2.5. https://github.com/RTOSkit/revolution. Спасибо ему за это. Жаль что уже он давно не заходит на ГитХаб.
+
+## Что сделал я:
+- В результате пары недель моего сумасшедшего интузиазма, опуская подробности, все заработало уже на версии 2.6.5, кроме корректной установки пакетов, которую я временно пофиксил.
 
 ## Технические данные:
 - поддержка php 5.6+ с расширением php sqlite3. можно узнать через phpinfo.
