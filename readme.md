@@ -28,12 +28,13 @@ Examples of models are the sources that lie in the public_html folder. rely on m
 Turn on the server and mods logs at the level you need.
 
 ## Request pool:
-** If you suddenly make a pool of requests, then do them AND in the public_html folder as well.
-Because in this way it will be easier to see the difference and more accurately bargain. **
+**If you suddenly make a pool of requests, then do them AND in the public_html folder as well.
+Because in this way it will be easier to see the difference and more accurately bargain.**
 
 ##Conclusion
 I hope that someone will come in handy a similar version of MODX without mysql. Already more robust and working.
 Requests pool in the original MODX repo, so far I think is unnecessary, because there are still errors and there is no good testing and a 100% guarantee that everything will be fine.
+
 Good luck!
 
 #RUSSIAN
