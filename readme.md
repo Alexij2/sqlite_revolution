@@ -39,7 +39,6 @@ I hope that someone will come in handy a similar version of MODX without mysql. 
 Requests pool in the original MODX repo, so far I think is unnecessary, because there are still errors and there is no good testing and a 100% guarantee that everything will be fine.
 
 Good luck!
-telegram: smialeig
 
 # Форк для тестирования и использования MODX Revolution 2.7.3 в работе с файловой базой данных SqLite3.
 
