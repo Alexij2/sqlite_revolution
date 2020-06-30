@@ -49,6 +49,8 @@ $xpdo_meta_map['modTransportPackage']= array (
     array (
       'dbtype' => 'bigint',
       'phptype' => 'timestamp',
+        'null' => false,
+        'default' => 0,
     ),
     'installed' => 
     array (

@@ -73,6 +73,7 @@ $xpdo_meta_map['modUserGroupSetting']= array (
         'dbtype' => 'bigint',
         'phptype' => 'timestamp',
         'null' => false,
+        'default' => 0,
     ),
   ),
   'indexes' => 

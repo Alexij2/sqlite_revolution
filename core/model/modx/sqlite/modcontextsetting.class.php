@@ -12,6 +12,7 @@ class modContextSetting_sqlite extends modContextSetting {
     public static function listSettings(xPDO &$xpdo, array $criteria = array(), array $sort = array('id' => 'ASC'), $limit = 0, $offset = 0) {
         /* build query */
         $c = $xpdo->newQuery('modContextSetting');
+        $c->distinct();
         $c->select(array(
             $xpdo->getSelectColumns('modContextSetting','modContextSetting'),
         ));

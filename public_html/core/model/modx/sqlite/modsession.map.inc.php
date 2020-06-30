@@ -30,6 +30,7 @@ $xpdo_meta_map['modSession']= array (
       'dbtype' => 'bigint',
       'phptype' => 'timestamp',
       'null' => false,
+        'default' => 0,
     ),
     'data' => 
     array (

@@ -19,8 +19,8 @@ class modContextSetting_sqlite extends modContextSetting {
             'Entry.value AS name_trans',
             'Description.value AS description_trans',
         ));
-        $c->leftJoin('modLexiconEntry','Entry',"'setting_' + modContextSetting.{$xpdo->escape('key')} = Entry.name");
-        $c->leftJoin('modLexiconEntry','Description',"'setting_' + modContextSetting.{$xpdo->escape('key')} + '_desc' = Description.name");
+        $c->leftJoin('modLexiconEntry','Entry',"'setting_' || modContextSetting.{$xpdo->escape('key')} = Entry.name");
+        $c->leftJoin('modLexiconEntry','Description',"'setting_' || modContextSetting.{$xpdo->escape('key')} || '_desc' = Description.name");
         $c->where($criteria);
         $c->groupby('modContextSetting.' . $xpdo->escape('context_key') . ', modContextSetting.' . $xpdo->escape('key')); // лечение ALEX
 

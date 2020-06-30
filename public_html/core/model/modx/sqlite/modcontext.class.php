@@ -10,6 +10,7 @@ include_once (strtr(realpath(dirname(__FILE__)), '\\', '/') . '/../modcontext.cl
  */
 class modContext_sqlite extends modContext {
     public static function getResourceCacheMapStmt(&$context) {
+        $context->xpdo->log(1, "alexCONT");
         $stmt = false;
         if ($context instanceof modContext) {
             $time=microtime(true);
@@ -30,19 +31,19 @@ class modContext_sqlite extends modContext {
             $contextKey = $context->get('key');
 
             $bindings = array();
-            $sql  = "SELECT {$resourceCols} FROM {$tblResource} `r` ";
+            $sql  = "SELECT {$resourceCols} FROM {$tblResource} [r] ";
             if ($use_context_resource_table) {
                 $bindings = array($contextKey, $contextKey);
-                $sql .= "FORCE INDEX (`cache_refresh_idx`) ";
-                $sql .= "LEFT JOIN {$tblContextResource} `cr` ON `cr`.`context_key` = ? AND `r`.`id` = `cr`.`resource` ";
+              //  $sql .= "FORCE INDEX ([cache_refresh_idx]) ";
+                $sql .= "LEFT JOIN {$tblContextResource} [cr] ON [cr].[context_key] = ? AND [r].[id] = [cr].[resource] ";
             }
-            $sql .= "WHERE `r`.`deleted` = 0 "; //"AND `r`.`id` != `r`.`parent`";
+            $sql .= "WHERE [r].[deleted] = 0 "; //"AND [r].[id] != [r].[parent]";
             if ($use_context_resource_table) {
-                $sql .= "AND (`r`.`context_key` = ? OR `cr`.`context_key` IS NOT NULL) ";
-                $sql .= "GROUP BY `r`.`parent`, `r`.`menuindex`, `r`.`id`, `r`.`uri` ";
+                $sql .= "AND ([r].[context_key] = ? OR [cr].[context_key] IS NOT NULL) ";
+                $sql .= "GROUP BY [r].[parent], [r].[menuindex], [r].[id], [r].[uri] ";
             } else {
                 $bindings = array($contextKey);
-                $sql .= "   AND `r`.`context_key` = ?";
+                $sql .= "   AND [r].[context_key] = ?";
             }
 
             $criteria = new xPDOCriteria($context->xpdo, $sql, $bindings, false);
@@ -74,21 +75,21 @@ class modContext_sqlite extends modContext {
 
             $bindings = array();
             $sql  = "SELECT {$resourceCols} ";
-            $sql .= "FROM {$tblResource} `r` ";
+            $sql .= "FROM {$tblResource} [r] ";
             if ($use_context_resource_table) {
                 $bindings = array($contextKey, $contextKey);
-                $sql .= "LEFT JOIN {$tblContextResource} `cr` ";
-                $sql .= "ON `cr`.`context_key` = ? AND `r`.`id` = `cr`.`resource` ";
+                $sql .= "LEFT JOIN {$tblContextResource} [cr] ";
+                $sql .= "ON [cr].[context_key] = ? AND [r].[id] = [cr].[resource] ";
             }
-            $sql .= "WHERE `r`.`deleted` = 0 "; //"`r`.`id` != `r`.`parent` ";
-            $sql .= "AND `r`.`class_key` = 'modWebLink' ";
+            $sql .= "WHERE [r].[deleted] = 0 "; //"`r`.`id` != `r`.`parent` ";
+            $sql .= "AND [r].[class_key] = 'modWebLink' ";
 
             if ($use_context_resource_table) {
-                $sql .= "AND (`r`.`context_key` = ? OR `cr`.`context_key` IS NOT NULL) ";
-                $sql .= "GROUP BY `r`.`id`";
+                $sql .= "AND ([r].[context_key] = ? OR [cr].[context_key] IS NOT NULL) ";
+                $sql .= "GROUP BY [r].[id]";
             } else {
                 $bindings = array($contextKey);
-                $sql .= "   AND `r`.`context_key` = ?";
+                $sql .= "   AND [r].[context_key] = ?";
             }
 
             $criteria = new xPDOCriteria($context->xpdo, $sql, $bindings, false);
