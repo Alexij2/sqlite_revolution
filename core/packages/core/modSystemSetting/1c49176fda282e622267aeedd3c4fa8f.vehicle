@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'e3aecc0d929217135d35dcaf99ac99f4',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '1c49176fda282e622267aeedd3c4fa8f',
+  'native_key' => 'rb_base_dir',
+  'object' => '{"key":"rb_base_dir","value":"","xtype":"textfield","namespace":"core","area":"file","editedon":null}',
+);

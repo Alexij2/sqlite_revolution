@@ -1,0 +1,53 @@
+### EXAMPLES PROTECT RULES FOR DB ZONE
+
+### Block Obfuscate Invoke
+Options -ExecCGI
+AddHandler cgi-script .db3
+
+### User Extern Message
+AuthName "  Authority Access:"
+
+###
+AuthType Basic
+
+### Password Set File
+### MOVE THE FILE ".htpasswd" IN A SECURE ZONE!!
+AuthUserFile /var/www/modx-2.2-git/core/data/.htpasswd
+
+### User Access Mode
+require valid-user
+
+### Content Access Mode
+Options -Indexes
+
+### Protect this file
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+### Protect DB file
+<Files modx.db3>
+order allow,deny
+
+## black list
+#deny from 0.0.0.0 
+
+## only internal traffic
+allow from env=is_internal
+
+</Files>
+
+### Null cache 
+<FilesMatch "\.(db3)$">
+	<IfModule mod_headers.c>
+		Header set Cache-Control "max-age=1"
+	</IfModule>
+	<IfModule mod_expires.c>
+		ExpiresActive On
+		ExpiresDefault 1
+	</IfModule>
+</FilesMatch>
+
+
+

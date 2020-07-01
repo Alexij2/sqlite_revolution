@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'a54589b915fef773b20c86ebecec8dd6',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'cf01cdc40a93ecf1d0b281873cffa987',
+  'native_key' => 'manager_date_format',
+  'object' => '{"key":"manager_date_format","value":"Y-m-d","xtype":"textfield","namespace":"core","area":"manager","editedon":null}',
+);

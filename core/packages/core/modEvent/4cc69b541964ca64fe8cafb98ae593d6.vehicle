@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '90793b890368624a02a6eb0d5347b7ee',
+  'package' => 'modx',
+  'class' => 'modEvent',
+  'signature' => '4cc69b541964ca64fe8cafb98ae593d6',
+  'native_key' => 'OnBeforeRegisterClientScripts',
+  'object' => '{"name":"OnBeforeRegisterClientScripts","service":5,"groupname":"System"}',
+);

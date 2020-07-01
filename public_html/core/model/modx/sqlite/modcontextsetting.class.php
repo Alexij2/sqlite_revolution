@@ -3,7 +3,7 @@
  * @package modx
  * @subpackage sqlite
  */
-require_once (dirname(dirname(__FILE__)) . '/modcontextsetting.class.php');
+include_once (strtr(realpath(dirname(__FILE__)), '\\', '/') . '/../modcontextsetting.class.php');
 /**
  * @package modx
  * @subpackage sqlite
@@ -19,9 +19,10 @@ class modContextSetting_sqlite extends modContextSetting {
             'Entry.value AS name_trans',
             'Description.value AS description_trans',
         ));
-        $c->leftJoin('modLexiconEntry','Entry',"'setting_' + modContextSetting.{$xpdo->escape('key')} = Entry.name");
-        $c->leftJoin('modLexiconEntry','Description',"'setting_' + modContextSetting.{$xpdo->escape('key')} + '_desc' = Description.name");
+        $c->leftJoin('modLexiconEntry','Entry',"'setting_' || modContextSetting.{$xpdo->escape('key')} = Entry.name");
+        $c->leftJoin('modLexiconEntry','Description',"'setting_' || modContextSetting.{$xpdo->escape('key')} || '_desc' = Description.name");
         $c->where($criteria);
+        $c->groupby('modContextSetting.' . $xpdo->escape('context_key') . ', modContextSetting.' . $xpdo->escape('key')); // лечение ALEX
 
         $count = $xpdo->getCount('modContextSetting',$c);
         $c->sortby($xpdo->getSelectColumns('modContextSetting','modContextSetting','',array('area')),'ASC');
@@ -31,10 +32,10 @@ class modContextSetting_sqlite extends modContextSetting {
         if ((int) $limit > 0) {
             $c->limit((int) $limit, (int) $offset);
         }
+        //$c->prepare();
         return array(
             'count'=> $count,
             'collection'=> $xpdo->getCollection('modContextSetting',$c)
         );
     }
 }
-?>

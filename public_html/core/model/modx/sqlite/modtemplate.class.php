@@ -16,13 +16,19 @@ class modTemplate_sqlite extends modTemplate {
         $c->select($template->xpdo->getSelectColumns('modTemplateVar','modTemplateVar'));
         $c->leftJoin('modTemplateVarTemplate','modTemplateVarTemplate', array(
             "modTemplateVarTemplate.tmplvarid = modTemplateVar.id",
-            'modTemplateVarTemplate.templateid' => $template->get('id'),
+            'modTemplateVarTemplate.templateid' => $template->get('id')
         ));
         $c->leftJoin('modCategory','Category');
         if (!empty($conditions)) { $c->where($conditions); }
         $c->select(array(
-            "CASE modTemplateVarTemplate.tmplvarid WHEN NULL THEN 0 ELSE 1 END AS access",
-            "ISNULL(modTemplateVarTemplate.rank, '-') AS tv_rank",
+            // "IF(ISNULL(modTemplateVarTemplate.tmplvarid),0,1) AS access",
+            // "IF(ISNULL(modTemplateVarTemplate.rank),0,modTemplateVarTemplate.rank) AS tv_rank",
+
+           // "CASE modTemplateVarTemplate.tmplvarid WHEN NULL THEN 0 ELSE 1 END AS access",
+          //  "IFNULL(modTemplateVarTemplate.rank, '-') AS tv_rank",
+
+            "IFNULL(modTemplateVarTemplate.tmplvarid, 0) AS access",
+            "IFNULL(modTemplateVarTemplate.rank, 0) AS tv_rank",
             'category_name' => 'Category.category',
         ));
         foreach ($sort as $sortKey => $sortDir) {

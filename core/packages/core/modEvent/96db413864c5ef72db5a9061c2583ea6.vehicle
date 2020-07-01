@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '8e3fceab72120ebc3e1781cf18bbbb67',
+  'package' => 'modx',
+  'class' => 'modEvent',
+  'signature' => '96db413864c5ef72db5a9061c2583ea6',
+  'native_key' => 'OnResourceDuplicate',
+  'object' => '{"name":"OnResourceDuplicate","service":1,"groupname":"Resources"}',
+);

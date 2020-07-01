@@ -1,8 +1,7 @@
-/public_html_0/
-/logs/
-/public_html_work/
-/info-gitHub.txt
 /changelog.txt
 /.gitignore
-/public_html_force-new/
 .idea
+/.git
+/Documents/
+/public_html/core/packages/
+/public_html/core/components/

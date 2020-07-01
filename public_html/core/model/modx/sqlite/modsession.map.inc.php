@@ -30,6 +30,7 @@ $xpdo_meta_map['modSession']= array (
       'dbtype' => 'bigint',
       'phptype' => 'timestamp',
       'null' => false,
+        'default' => 0,
     ),
     'data' => 
     array (
@@ -69,6 +70,21 @@ $xpdo_meta_map['modSession']= array (
           'length' => '',
           'collation' => 'A',
           'null' => false,
+        ),
+      ),
+    ),
+  ),
+  'validation' =>
+  array (
+    'rules' =>
+    array (
+      'id' =>
+      array (
+        'invalid' =>
+        array (
+          'type' => 'preg_match',
+          'rule' => '/^[0-9a-zA-Z,-]{22,191}$/',
+          'message' => 'session_err_invalid_id',
         ),
       ),
     ),
