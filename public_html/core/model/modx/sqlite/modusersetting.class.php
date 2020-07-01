@@ -28,7 +28,7 @@ class modUserSetting_sqlite extends modUserSetting {
         if ((int) $limit > 0) {
             $c->limit((int) $limit, (int) $offset);
         }
-       // $c->prepare();
+       //  $c->prepare();
         return array(
             'count'=> $count,
             'collection'=> $xpdo->getCollection('modUserSetting',$c)
