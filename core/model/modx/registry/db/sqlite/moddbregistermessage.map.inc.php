@@ -55,8 +55,8 @@ $xpdo_meta_map['modDbRegisterMessage']= array (
       'dbtype' => 'bigint',
       'phptype' => 'timestamp',
       'index' => 'index',
-        //'null' => false,
-        //'default' => 0,
+        'null' => false,
+        'default' => 0,
     ),
     'accesses' => 
     array (

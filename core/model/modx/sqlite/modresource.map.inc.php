@@ -17,6 +17,7 @@ $xpdo_meta_map['modResource']= array (
     'longtitle' => '',
     'description' => '',
     'alias' => '',
+    'alias_visible' => 1,
     'link_attributes' => '',
     'published' => 0,
     'pub_date' => 0,
@@ -111,7 +112,15 @@ $xpdo_meta_map['modResource']= array (
       'default' => '',
       'index' => 'index',
     ),
-    'link_attributes' => 
+    'alias_visible' =>
+    array (
+      'dbtype' => 'bit',
+      'precision' => '1',
+      'phptype' => 'boolean',
+      'null' => false,
+      'default' => 1,
+    ),
+    'link_attributes' =>
     array (
       'dbtype' => 'nvarchar',
       'precision' => '255',
@@ -308,7 +317,7 @@ $xpdo_meta_map['modResource']= array (
     ),
     'content_dispo' => 
     array (
-      'dbtype' => 'tinyint',
+      'dbtype' => 'integer',
       'precision' => '1',
       'phptype' => 'integer',
       'null' => false,
@@ -352,8 +361,7 @@ $xpdo_meta_map['modResource']= array (
       'dbtype' => 'nvarchar',
       'precision' => '1000',
       'phptype' => 'string',
-      'null' => false,
-      'default' => '',
+      'null' => true,
       'index' => 'index',
     ),
     'uri_override' => 
@@ -610,7 +618,7 @@ $xpdo_meta_map['modResource']= array (
         array (
           'length' => '1000',
           'collation' => 'A',
-          'null' => false,
+          'null' => true,
         ),
       ),
     ),
@@ -783,14 +791,6 @@ $xpdo_meta_map['modResource']= array (
       'foreign' => 'id',
       'cardinality' => 'one',
       'owner' => 'foreign',
-    ),
-    'Children' => 
-    array (
-      'class' => 'modResource',
-      'local' => 'id',
-      'foreign' => 'parent',
-      'cardinality' => 'many',
-      'owner' => 'local',
     ),
     'CreatedBy' => 
     array (

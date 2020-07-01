@@ -18,8 +18,8 @@ class modUserGroupSetting_sqlite extends modUserGroupSetting {
             'Entry.value AS name_trans',
             'Description.value AS description_trans',
         ));
-        $c->leftJoin('modLexiconEntry','Entry',"'setting_' + modUserGroupSetting.{$xpdo->escape('key')} = Entry.name");
-        $c->leftJoin('modLexiconEntry','Description',"'setting_' + modUserGroupSetting.{$xpdo->escape('key')} + '_desc' = Description.name");
+        $c->leftJoin('modLexiconEntry','Entry',"'setting_' || modUserGroupSetting.{$xpdo->escape('key')} = Entry.name");
+        $c->leftJoin('modLexiconEntry','Description',"'setting_' || modUserGroupSetting.{$xpdo->escape('key')} || '_desc' = Description.name");
         $c->where($criteria);
         //$c->groupby('modUserGroupSetting.' . $xpdo->escape('user') . ', modUserGroupSetting.' . $xpdo->escape('key')); // лечение ALEX
         $count = $xpdo->getCount('modUserGroupSetting',$c);
@@ -30,6 +30,7 @@ class modUserGroupSetting_sqlite extends modUserGroupSetting {
         if ((int) $limit > 0) {
             $c->limit((int) $limit, (int) $offset);
         }
+       // $c->prepare();
         return array(
             'count'=> $count,
             'collection'=> $xpdo->getCollection('modUserGroupSetting',$c)

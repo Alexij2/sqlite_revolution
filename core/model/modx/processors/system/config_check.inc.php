@@ -213,7 +213,15 @@ if ($allowTagsInPostSystem > 0) {
         $modx->lexicon('configcheck_allowtagsinpost_system_enabled')
     );
 }
-$allowTagsInPostContext = $modx->getCount('modContextSetting', array('context_key:!=' => 'mgr', 'key' => 'allow_tags_in_post', 'value' => '1'));
+// becouse sqlite no correctly
+$getGroupColumns = $modx->newQuery('modContextSetting');
+$getGroupColumns->select(array(
+    $modx->getSelectColumns('modContextSetting','modContextSetting'),
+));
+$getGroupColumns->where(array('context_key:!=' => 'mgr', 'key' => 'allow_tags_in_post', 'value' => '1'));
+$getGroupColumns->groupby('modContextSetting.' . $modx->escape('context_key') . ', modContextSetting.' . $modx->escape('key'));
+
+$allowTagsInPostContext = $modx->getCount('modContextSetting', $getGroupColumns);
 if ($allowTagsInPostContext > 0) {
     $warnings[] = array(
         $modx->lexicon('configcheck_allowtagsinpost_context_enabled')

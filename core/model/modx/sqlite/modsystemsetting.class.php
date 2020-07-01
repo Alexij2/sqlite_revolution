@@ -19,8 +19,9 @@ class modSystemSetting_sqlite extends modSystemSetting {
             'name_trans' => 'Entry.value',
             'description_trans' => 'Description.value',
         ));
-        $c->leftJoin('modLexiconEntry','Entry',"'setting_' + modSystemSetting.[key] = Entry.name");
-        $c->leftJoin('modLexiconEntry','Description',"'setting_' + modSystemSetting.[key] + '_desc' = Description.name");
+        $c->leftJoin('modLexiconEntry','Entry',"'setting_' || modSystemSetting.{$xpdo->escape('key')} = Entry.name");
+        $c->leftJoin('modLexiconEntry','Description',"'setting_' || modSystemSetting.{$xpdo->escape('key')} || '_desc'  = Description.name");
+
         $c->where($criteria);
 
         $count = $xpdo->getCount('modSystemSetting',$c);
@@ -31,7 +32,7 @@ class modSystemSetting_sqlite extends modSystemSetting {
         if ((int) $limit > 0) {
             $c->limit((int) $limit, (int) $offset);
         }
-        $c->prepare();
+        //$c->prepare();
         //$xpdo->log(1, "alexii: ".print_r($xpdo->getCollection('modSystemSetting',$c),1));
         return array(
             'count'=> $count,

@@ -72,6 +72,7 @@ $xpdo_meta_map['modUserSetting']= array (
       'dbtype' => 'bigint',
       'phptype' => 'timestamp',
       'null' => false,
+        'default' => "(strftime('%s','now','localtime'))",
     ),
   ),
   'indexes' => 
